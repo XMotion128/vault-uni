@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Strutture e strutture dati dinamiche.md",
+                "file": "linguaggi/Definizioni da imparare.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Strutture e strutture dati dinamiche"
+              "title": "Definizioni da imparare"
             }
           }
         ]
@@ -179,9 +179,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "adfab1989b138d92",
+  "active": "03b177dd12cf7934",
   "lastOpenFiles": [
     "Strutture e strutture dati dinamiche.md",
+    "linguaggi/Definizioni da imparare.md",
     "labinf",
     "esercizi.md",
     "Email_Cheatsheet_Universitario.md",
