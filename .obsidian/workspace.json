@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8b1bcd93405cd367",
+        "id": "7c3553740cef9ca8",
         "type": "tabs",
         "children": [
           {
-            "id": "21b227c5977c27aa",
+            "id": "4bb7254e5979695e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linguaggi/Definizioni da imparare.md",
+                "file": "statistica/Formulario base (provvisorio).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Definizioni da imparare"
+              "title": "Formulario base (provvisorio)"
             }
           }
         ]
@@ -170,6 +170,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
@@ -179,17 +180,38 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "21b227c5977c27aa",
+  "active": "4bb7254e5979695e",
   "lastOpenFiles": [
-    "linguaggi/tabellaChiusura.png",
+    "analisi/Definizioni utili.md",
+    "analisi/Pasted image 20250702200224.png",
+    "analisi/Argomenti fatti.md",
+    "analisi/Definizioni_utili_definitivo.pdf",
+    "analisi/Definizioni_utili_5.pdf",
     "linguaggi/Definizioni da imparare.md",
+    "linguaggi/Pumping Lemma.md",
+    "analisi/Definizioni_utili_4.pdf",
+    "analisi/Definizioni_utili_3.pdf",
+    "analisi.zip",
+    "analisi/Definizioni_utili_2.pdf",
+    "analisi/Pasted image 20250605191849.png",
+    "analisi/Pasted image 20250605191411.png",
+    "analisi/Pasted image 20250605172425.png",
+    "analisi/Pasted image 20250605172319.png",
+    "analisi/Pasted image 20250605114327.png",
+    "analisi/Pasted image 20250605113727.png",
+    "analisi/Pasted image 20250605111715.png",
+    "analisi/Pasted image 20250605111656.png",
+    "analisi/Pasted image 20250605110800.png",
+    "analisi/Definizioni_utili_1.pdf",
+    "linguaggi/Appunti sui compilatori.md",
+    "analisi",
+    "linguaggi/Pumping_Lemma.pdf",
+    "Pumping Lemma.md",
+    "linguaggi/Definizioni da imparare_FINITO.pdf",
     "Strutture e strutture dati dinamiche.md",
-    "labinf",
     "esercizi.md",
     "Email_Cheatsheet_Universitario.md",
     "documenti_utili/Email_Cheatsheet_Universitario.md",
-    "documenti_utili",
-    "Nuova cartella",
     "Discreta/Calcolo Combinatorio.md",
     "Insiemi.md",
     "2024-11-18 Esonero programmazione.md",
@@ -198,7 +220,6 @@
     "2024-10-23 Vedere le conversioni di AdESO.md",
     "combinazione.md",
     "Untitled.canvas",
-    "Discreta",
     "Welcome.md"
   ]
 }
