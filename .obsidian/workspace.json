@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "7c3553740cef9ca8",
+        "id": "971afedb48e69106",
         "type": "tabs",
         "children": [
           {
-            "id": "4bb7254e5979695e",
+            "id": "273e48fc8adb498e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "statistica/Formulario base (provvisorio).md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Formulario base (provvisorio)"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -157,8 +153,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-ghost",
+              "title": "git-view"
             }
           }
         ],
@@ -166,7 +162,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,11 +174,23 @@
       "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "4bb7254e5979695e",
+  "active": "273e48fc8adb498e",
   "lastOpenFiles": [
+    "statistica/Appunti vari teoria.md",
+    "statistica/lezioni e altro/va_discrete.pdf",
+    "statistica/lezioni e altro/va_continue.pdf",
+    "statistica/lezioni e altro/5 Variabili casuali (04.10.2024).pdf",
+    "statistica/lezioni e altro",
+    "statistica/Nuova cartella",
+    "Drawing 2025-11-27 20.01.41.excalidraw.md",
+    "Excalidraw/Drawing 2025-11-27 18.51.47.excalidraw.md",
+    "Senza nome.canvas",
+    "Excalidraw",
+    "Senza nome.base",
     "analisi/Definizioni utili.md",
     "analisi/Pasted image 20250702200224.png",
     "analisi/Argomenti fatti.md",
@@ -190,9 +199,6 @@
     "linguaggi/Definizioni da imparare.md",
     "linguaggi/Pumping Lemma.md",
     "analisi/Definizioni_utili_4.pdf",
-    "analisi/Definizioni_utili_3.pdf",
-    "analisi.zip",
-    "analisi/Definizioni_utili_2.pdf",
     "analisi/Pasted image 20250605191849.png",
     "analisi/Pasted image 20250605191411.png",
     "analisi/Pasted image 20250605172425.png",
@@ -202,12 +208,8 @@
     "analisi/Pasted image 20250605111715.png",
     "analisi/Pasted image 20250605111656.png",
     "analisi/Pasted image 20250605110800.png",
-    "analisi/Definizioni_utili_1.pdf",
     "linguaggi/Appunti sui compilatori.md",
-    "analisi",
-    "linguaggi/Pumping_Lemma.pdf",
     "Pumping Lemma.md",
-    "linguaggi/Definizioni da imparare_FINITO.pdf",
     "Strutture e strutture dati dinamiche.md",
     "esercizi.md",
     "Email_Cheatsheet_Universitario.md",
