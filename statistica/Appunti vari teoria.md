@@ -40,7 +40,7 @@ Alle variabili aleatorie *continue* si associa:
 
 Esempi di v.a. discrete: *Bernoulli, binomiale, geometrica*;
 Esempi di v.a. continue: *Normale, t-Student, Chi-quadro, Uniforme, Fisher*.
-
+# V.A. Discrete
 ## V.A. di Bernoulli
 Utile per casi di tipo successo-insuccesso (S-I).
 $$
@@ -56,8 +56,92 @@ dove:
 si scrive $X \sim b(1, p)$ e si dice *v.a. di Bernoulli con parametro* $p$.
 
 ## V.A. binomiale
-Utile per i casi di ripetizioni (indipendenti) di esperimenti di tipo S-I dove la probabilità di S è pari e $p \in (0, 1)$. Voglio determinare la v.a. $X$ che conta il numero di S nelle $n$ prove, pertanto $cod(X) = \{0, 1,..., n\}$. Se $k = 0, ..., n$ $P(X = k)$ è la probabilità che ci siano esattamente $k$ successi, quindi:
+Utile per i casi di ripetizioni (indipendenti) di esperimenti di tipo S-I dove la probabilità di S è pari e $p \in (0, 1)$. Voglio determinare la v.a. $X$ che **conta il numero di S nelle $n$ prove**, pertanto $cod(X) = \{0, 1,..., n\}$. Se $k = 0, ..., n$ $P(X = k)$ è la **probabilità che ci siano esattamente $k$ successi**, quindi:
 $$
 P(X = k) = \binom{n}{k} p^k (1-p)^{n - k}
 $$
 si scrive $X = b(n, p)$ e si dice *v.a. a legge binomiale di parametri* $n, p$.
+
+## V.A. Geometrica
+Utile per casi di ripetizioni (indipendenti) di esperimenti di tipo S-I per un numero imprecisato di volte, dove $p \in (0, 1)$ è la probabilità di S in ogni singola prova, e vogliamo sapere quale v.a. $X$ descrive le **probabilità di primo successo**. Se $k = 1, 2, ...$ $P(X = k)$ è la probabilità che il primo successo si verifichi esattamente alla $k$-esima prova, pertanto $cod(X) = \{1,2,3,...\}$.
+$$
+P(X = k) = p (1-p)^{k - 1}, \ \ \ k\geq 1
+$$
+si scrive $X \sim geo(p)$ e si dice *v.a. geometrica di parametro* $p$.
+
+## V.A. Poisson
+Una v.a. si dice che ha **legge di Poisson di parametro** $\lambda$ ($\lambda > 0$), e si scrive $X \sim P(\lambda)$ se:
+- $cod(X) = \mathbb{N} \cup \{0\} = \{0,1,2,...\}$;
+- $P(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}, k \geq 0$.
+
+Questa v.a. è **associabile alla binomiale** se, data $X \sim b(n,p)$ **con $n$ "grande" e $p$ piccola** t.c. $np = \lambda$, allora $X$ si può approssimare con una Poisson di parametro $\lambda$ ($X \approx P(\lambda), \lambda = np$). Utile per **semplificare i calcoli**.
+
+# V.A. Continue
+## V.A. Uniforme
+Siano $a, b \in \mathbb{R}, a < b$. Si dice che una v.a. $X$ ha *legge uniforme di parametri $a, b$* e si scrive $X \sim U(a, b)$ se $X$ è assolutamente continua e con funzione di densità di probabilità ($pdf$):
+$$
+f_X(x) := \begin{cases}
+\frac{1}{b-a} \ \ a \leq x \leq b \\
+0 \text{ altrimenti}
+\end{cases}
+$$
+Essa ha funzione di distribuzione ($FdD$):
+$$
+F_X(x) = \int^x_{-\infty} f_X(t) dt = \begin{cases}
+0 \ \ \text{se }x < a \\
+\frac{x-a}{b-a} \ \ \text{se } a \leq x \leq b \\
+1 \ \ \text{se }x > b
+\end{cases}
+$$
+
+La probabilità che prende valori in un intervallo **dipende solo dalla sua ampiezza**, NON da dove si trova l'intervallo stesso, ecco perché si dice *uniforme*.
+
+## V.A. Gaussiana (o normale)
+Siano $\mu \in \mathbb{R}$ e $\sigma > 0$. Si dice che una v.a. $X$ ha *legge gaussiana di parametri $\mu$ e $\sigma^2$* e si scrive $X \sim N(\mu, \sigma^2)$ se $X$ è assolutamente continua con funzione di densità di probabilità ($pdf$):
+$$
+	f_X(x) := \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+
+Essa ha funzione di distribuzione ($FdD$):
+$$
+F_X(x) = \int^x_{-\infty} f_X (t) dt
+$$
+
+
+la più importante legge gaussiana è quella per cui $\mu = 0, \sigma^2 = 1$, cioè $X \sim N(0,1)$; in tal caso si dice che $X$ ha **legge normale standard**. la $FdD$ di una normale standard si denota con $\Phi(x)$.
+Oss: $\Phi(-x) = 1 - \Phi(x)$
+
+Proposizione:
+$$
+aX + b \sim N(a\mu + b, a^2 \sigma^2)
+$$
+
+### Come convertiamo una normale ad una normale standard?
+Sia $X \sim N(\mu, \sigma^2)$. Allora
+$$
+\frac{X-\mu}{\sigma} \sim N(0,1)
+$$
+### Se abbiamo i parametri $\mu$ e $\sigma$, come convertiamo una normale standard a una normale con quei parametri?
+Se $X \sim N(0,1)$, allora, se $\mu \in \mathbb{R}, \sigma > 0$:
+$$
+\sigma X + \mu \sim N(\mu, \sigma^2)
+$$
+
+## V.A. Chi-quadro
+Siano $X_1, ..., X_n$ v.a. indipendenti, $X_i \sim n(0,1) \ \forall i = 1,...,n$. Allora, detta $X = X^2_1 + X^2_2 + ... + X^2_n$, si dice che $X$ ha *legge Chi-quadro con $n$ gradi di libertà (o di parametro $n$)* e si scrive $X \sim \chi^2_n$.
+Oss:
+$$
+X \sim N(0,1) \Rightarrow X^2 \sim \chi^2_1
+$$
+
+
+## V.A. t-student
+Siano $X \sim N(0,1)$ e $Y \sim \chi^2_n$ indipendenti. La v.a. $$T := \frac{X}{\sqrt{\frac{Y}{n}}}$$ si dice a *legge t-student con $n$ gradi di libertà*, e si scrive $T \sim t_n$.
+Oss: è surrogato della normale, la sua $pdf$ è simile alla funzione di Gauss.
+
+## V.A. Fisher
+Siano $X \sim \chi^2_n$ e $Y \sim \chi^2_m$ indipendenti. La v.a.
+$$
+F:= \frac{X/n}{Y/m}
+$$
+si dice a *legge di Fisher con $n, m$ gradi di libertà, e si scrive $F \sim F_{n,m}$.

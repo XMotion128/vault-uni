@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "971afedb48e69106",
+        "id": "a853958afb17a8da",
         "type": "tabs",
         "children": [
           {
-            "id": "273e48fc8adb498e",
+            "id": "c5d4e94bea058f80",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "statistica/Appunti vari teoria.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Appunti vari teoria"
             }
           }
         ]
@@ -174,15 +178,14 @@
       "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "273e48fc8adb498e",
+  "active": "c5d4e94bea058f80",
   "lastOpenFiles": [
+    "statistica/lezioni e altro/va_continue.pdf",
     "statistica/Appunti vari teoria.md",
     "statistica/lezioni e altro/va_discrete.pdf",
-    "statistica/lezioni e altro/va_continue.pdf",
     "statistica/lezioni e altro/5 Variabili casuali (04.10.2024).pdf",
     "statistica/lezioni e altro",
     "statistica/Nuova cartella",
