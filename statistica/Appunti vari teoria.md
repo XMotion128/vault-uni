@@ -55,12 +55,18 @@ dove:
 
 si scrive $X \sim b(1, p)$ e si dice *v.a. di Bernoulli con parametro* $p$.
 
+- $E(X) = p$
+- $V(X) = p(1-p)$
+
 ## V.A. binomiale
 Utile per i casi di ripetizioni (indipendenti) di esperimenti di tipo S-I dove la probabilità di S è pari e $p \in (0, 1)$. Voglio determinare la v.a. $X$ che **conta il numero di S nelle $n$ prove**, pertanto $cod(X) = \{0, 1,..., n\}$. Se $k = 0, ..., n$ $P(X = k)$ è la **probabilità che ci siano esattamente $k$ successi**, quindi:
 $$
 P(X = k) = \binom{n}{k} p^k (1-p)^{n - k}
 $$
 si scrive $X = b(n, p)$ e si dice *v.a. a legge binomiale di parametri* $n, p$.
+
+- $E(X) = np$
+- $V(X) = np(1-p)$
 
 ## V.A. Geometrica
 Utile per casi di ripetizioni (indipendenti) di esperimenti di tipo S-I per un numero imprecisato di volte, dove $p \in (0, 1)$ è la probabilità di S in ogni singola prova, e vogliamo sapere quale v.a. $X$ descrive le **probabilità di primo successo**. Se $k = 1, 2, ...$ $P(X = k)$ è la probabilità che il primo successo si verifichi esattamente alla $k$-esima prova, pertanto $cod(X) = \{1,2,3,...\}$.
@@ -69,12 +75,18 @@ P(X = k) = p (1-p)^{k - 1}, \ \ \ k\geq 1
 $$
 si scrive $X \sim geo(p)$ e si dice *v.a. geometrica di parametro* $p$.
 
+- $E(X) = \frac{1}{p}$
+- $V(X) = \frac{1-p}{p^2}$
+
 ## V.A. Poisson
 Una v.a. si dice che ha **legge di Poisson di parametro** $\lambda$ ($\lambda > 0$), e si scrive $X \sim P(\lambda)$ se:
 - $cod(X) = \mathbb{N} \cup \{0\} = \{0,1,2,...\}$;
 - $P(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}, k \geq 0$.
 
 Questa v.a. è **associabile alla binomiale** se, data $X \sim b(n,p)$ **con $n$ "grande" e $p$ piccola** t.c. $np = \lambda$, allora $X$ si può approssimare con una Poisson di parametro $\lambda$ ($X \approx P(\lambda), \lambda = np$). Utile per **semplificare i calcoli**.
+
+- $E(X) = \lambda$
+- $V(X) = \lambda$
 
 # V.A. Continue
 ## V.A. Uniforme
@@ -95,6 +107,9 @@ F_X(x) = \int^x_{-\infty} f_X(t) dt = \begin{cases}
 $$
 
 La probabilità che prende valori in un intervallo **dipende solo dalla sua ampiezza**, NON da dove si trova l'intervallo stesso, ecco perché si dice *uniforme*.
+
+- $E(X) = \frac{1}{2} (a + b)$
+- $V(X) = \frac{(b-a)^2}{12}$
 
 ## V.A. Gaussiana (o normale)
 Siano $\mu \in \mathbb{R}$ e $\sigma > 0$. Si dice che una v.a. $X$ ha *legge gaussiana di parametri $\mu$ e $\sigma^2$* e si scrive $X \sim N(\mu, \sigma^2)$ se $X$ è assolutamente continua con funzione di densità di probabilità ($pdf$):
@@ -127,6 +142,13 @@ $$
 \sigma X + \mu \sim N(\mu, \sigma^2)
 $$
 
+Se $X \sim N(0,1)$:
+- $E(X) = \mu = 0$
+- $V(X) = \sigma^2 = 1$
+
+Se $Y \sim N(\mu, \sigma^2)$ e $X \sim N(0,1)$, allora:
+- $E(Y) = E(\sigma X + \mu) = \sigma E(X) + \mu$
+- $V(Y) = E(\sigma X + \mu) = \sigma^2 V(X)$
 ## V.A. Chi-quadro
 Siano $X_1, ..., X_n$ v.a. indipendenti, $X_i \sim n(0,1) \ \forall i = 1,...,n$. Allora, detta $X = X^2_1 + X^2_2 + ... + X^2_n$, si dice che $X$ ha *legge Chi-quadro con $n$ gradi di libertà (o di parametro $n$)* e si scrive $X \sim \chi^2_n$.
 Oss:
@@ -145,3 +167,6 @@ $$
 F:= \frac{X/n}{Y/m}
 $$
 si dice a *legge di Fisher con $n, m$ gradi di libertà, e si scrive $F \sim F_{n,m}$.
+
+
+==TODO: aggiungere indicazioni operative sulle somme ecc. tra varianze e medie. Capire anche i valori di media e varianza di chi-quadro,  Fisher e t-student==
