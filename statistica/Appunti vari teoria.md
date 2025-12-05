@@ -156,10 +156,15 @@ $$
 X \sim N(0,1) \Rightarrow X^2 \sim \chi^2_1
 $$
 
+- $E(X) = n$
+- $V(X) = 2n$
 
 ## V.A. t-student
 Siano $X \sim N(0,1)$ e $Y \sim \chi^2_n$ indipendenti. La v.a. $$T := \frac{X}{\sqrt{\frac{Y}{n}}}$$ si dice a *legge t-student con $n$ gradi di libertà*, e si scrive $T \sim t_n$.
 Oss: è surrogato della normale, la sua $pdf$ è simile alla funzione di Gauss.
+
+- $E(X) = 0$
+- $V(X) = \frac{n}{n-2}$
 
 ## V.A. Fisher
 Siano $X \sim \chi^2_n$ e $Y \sim \chi^2_m$ indipendenti. La v.a.
@@ -168,5 +173,40 @@ F:= \frac{X/n}{Y/m}
 $$
 si dice a *legge di Fisher con $n, m$ gradi di libertà, e si scrive $F \sim F_{n,m}$.
 
+lasciamo stare $E(X)$ e $V(X)$ AHAHAHAHAHAH
 
-==TODO: aggiungere indicazioni operative sulle somme ecc. tra varianze e medie. Capire anche i valori di media e varianza di chi-quadro,  Fisher e t-student==
+## Medie, varianze e operazioni su esse
+Il **valore atteso** di $X$ $E(X)$ è definito come segue:
+- per v.a. discrete avremo: $$:=\begin{cases} \
+\sum_{k \in cod(X)} k P(X=k) \ \ \text{ se tale somma è finita} \\ \\
++\infty \text{ altrimenti}\end{cases}$$
+- per v.a. continue avremo:$$:=\begin{cases}
+\int^{+\infty}_{-\infty} t f_X (t) dt \ \text{ se tale integrale è definito} \\ \\
++\infty \ \text{ altrimenti}\end{cases}$$
+Proposizioni varie:
+- $E(aX + b) = aE(X) + b$
+- se $X_1,...,X_n$ v.a. t.c. $E(X_i) < +\infty \ \forall i+1,...,n$, allora$$E(\sum_{i=1}^n X_i) = \sum_{i=1}^n E(X_i)$$
+- se $X_1,...,X_n$ v.a. indipendenti t.c. $E(X_i) < +\infty \ \forall i+1,...,n$, allora$$E(\prod_{i=1}^n X_i) = \prod_{i=1}^n E(X_i)$$
+- se $X$ v.a. , $m \geq 1$, si definisce **momento di ordine $m$** di $X$ la quantità $E[X^m] =$$$=\begin{cases}
+\sum_{k \in cod(X)} k^m P(X=k) \ \ \text{ per v.a. discrete} \\ \\
+\int^{+\infty}_{-\infty} t^m f_X(t) dt \ \ \text{ per v.a. continue} \end{cases}$$
+La varianza di $X$ $V(X)$ è definita come segue:$$V(X) := E[(X - E(X))^2)]$$
+La covarianza di $X, Y$ è definita come segue:$$cov(X, Y) := E[(X-E(X)) (Y-E(Y))]$$e se $X = Y$, allora:$$cov(X, X) = E[(X-E(X))^2] \ V(X)$$
+Formula operativa della covarianza:$$cov(X, Y) = E(XY) - E(X) \ E(Y)$$
+
+Proposizioni varie:
+- $V(X) = E(X^2) - E(X)^2$ (<u>formula operativa della varianza</u>)
+- $V(aX + b) = a^2 V(X)$ (la traslazione $b$ non cambia la disp. intorno alla media)
+- se $X_1,...,X_n$ v.a. t.c. $E(X_i) < +\infty \ \forall i+1,...,n$, allora:$$V(\sum_{i=1}^n X_i) = \sum_{i=1}^n V(X_i) + \sum_{i,j = 1,i\neq j}^n cov(X_i, X_j)$$
+- se $X_1,...,X_n$ v.a. indipendenti, allora:$$V(\sum_{i+1}^n X_i) = \sum_{i+1}^n V(X_i)$$
+
+##  Stimatori di massima verosimiglianza
+- Per $X = (X_1,...,X_n)$ campione di Bernoulli $X_i \sim b(1, p)$.$$\hat{p} = \frac{1}{n} \sum_{i=1}^n X_i$$Il parametro $p$ si può stimare attraverso la media campionaria.
+- Per $X = (X_1,...,X_n)$ campione di Poisson $X_i \sim P(\lambda)$, $\lambda > 0$ ignoto.$$\hat{\lambda} = \frac{1}{n} \sum_{i=1}^n X_i$$
+
+
+
+
+
+
+==TODO: aggiungere indicazioni operative sulle somme, prodotti ecc. tra variabili aleatorie, intervalli di fiducia, stimatori e test vari.==
