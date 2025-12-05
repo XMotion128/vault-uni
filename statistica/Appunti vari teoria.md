@@ -201,12 +201,12 @@ Proposizioni varie:
 - se $X_1,...,X_n$ v.a. indipendenti, allora:$$V(\sum_{i+1}^n X_i) = \sum_{i+1}^n V(X_i)$$
 
 ##  Stimatori di massima verosimiglianza
-- Per $X = (X_1,...,X_n)$ campione di Bernoulli $X_i \sim b(1, p)$.$$\hat{p} = \frac{1}{n} \sum_{i=1}^n X_i$$Il parametro $p$ si può stimare attraverso la media campionaria.
+- Per $X = (X_1,...,X_n)$ campione di Bernoulli $X_i \sim b(1, p)$.$$\hat{p} = \frac{1}{n} \sum_{i=1}^n X_i$$Il parametro $p$ si può stimare attraverso la **media campionaria**.
 - Per $X = (X_1,...,X_n)$ campione di Poisson $X_i \sim P(\lambda)$, $\lambda > 0$ ignoto.$$\hat{\lambda} = \frac{1}{n} \sum_{i=1}^n X_i$$
+- Per $X = (X_1,...,X_n)$ campione normale $X_i \sim N(\mu, \sigma^2)$.$$\hat{\mu} = \frac{1}{n} \sum_{i=1}^n X_i$$$$\hat{\sigma^2} = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X_n})^2 = \frac{n-1}{n} S^2_n$$  $\mu$ si stima attraverso la **media campionaria**, ma attenzione alla **$\sigma^2 \neq$ media campionaria**.
 
 
+- Per $X = (X_1,...,X_n)$ campione uniforme $X_i \sim U(\theta)$.$$\theta = max(X_1,...,X_n)$$$\theta$ si stima col **massimo tra i valori del campione**.
 
 
-
-
-==TODO: aggiungere indicazioni operative sulle somme, prodotti ecc. tra variabili aleatorie, intervalli di fiducia, stimatori e test vari.==
+==TODO: aggiungere indicazioni operative sulle somme, prodotti ecc. tra variabili aleatorie, intervalli di fiducia e test vari.==
