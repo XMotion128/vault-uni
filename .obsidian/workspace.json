@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7361ce0c231e9df1",
+        "id": "5bab8265b952d7e5",
         "type": "tabs",
         "children": [
           {
-            "id": "7a066252113984d9",
+            "id": "4228039ba89c579e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -181,20 +181,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7a066252113984d9",
+  "active": "edba7f5bc679fb72",
   "lastOpenFiles": [
-    "reti/Appunti reti.md",
-    "statistica/Appunti_statistica_chri.pdf",
-    "statistica/Appunti vari teoria.md",
-    "reti",
     "statistica/Tavole.pdf",
     "statistica/Formulario Statistica.pdf",
     "Senza nome.base",
+    "statistica/Appunti vari teoria.md",
+    "Nuovo Documento di testo.txt",
+    "reti/Appunti reti.md",
+    "statistica/Appunti_statistica_chri.pdf",
+    "reti",
     "statistica/mike_appunti.pdf",
     "statistica/Statistica.pdf",
     "statistica/lezioni e altro/va_continue.pdf",
     "statistica/lezioni e altro/va_discrete.pdf",
-    "statistica/lezioni e altro/5 Variabili casuali (04.10.2024).pdf",
     "Drawing 2025-11-27 20.01.41.excalidraw.md",
     "Excalidraw/Drawing 2025-11-27 18.51.47.excalidraw.md",
     "Senza nome.canvas",

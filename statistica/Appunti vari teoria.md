@@ -73,6 +73,9 @@ Utile per casi di ripetizioni (indipendenti) di esperimenti di tipo S-I per un n
 $$
 P(X = k) = p (1-p)^{k - 1}, \ \ \ k\geq 1
 $$
+$$
+P(X > k) = (1-p)^k
+$$
 si scrive $X \sim geo(p)$ e si dice *v.a. geometrica di parametro* $p$.
 
 - $E(X) = \frac{1}{p}$
@@ -217,5 +220,5 @@ Proposizioni varie:
 | **Binomiali** $B(n, p)$        | **Binomiale**     | **Non Binomiale**    | Solo se hanno lo stesso $p$. Si sommano gli $n$.                                 |
 | **t-Student**                  | **Non t-Student** | **Non t-Student**    | Tende alla Normale per grandi gradi di libertà.                                  |
 
-
+**Ricorda**: le **varianze** non vanno **mai sottratte**! I coefficienti delle varianze vengono elevati al quadrato e tirati fuori dalla parentesi.
 ==Intervalli di fiducia e test vari sono disponibili sul formulario del professore==
