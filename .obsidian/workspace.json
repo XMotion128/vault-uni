@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a853958afb17a8da",
+        "id": "7361ce0c231e9df1",
         "type": "tabs",
         "children": [
           {
-            "id": "c5d4e94bea058f80",
+            "id": "7a066252113984d9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "statistica/Appunti vari teoria.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -181,27 +181,28 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c5d4e94bea058f80",
+  "active": "7a066252113984d9",
   "lastOpenFiles": [
-    "statistica/lezioni e altro/va_continue.pdf",
+    "reti/Appunti reti.md",
+    "statistica/Appunti_statistica_chri.pdf",
     "statistica/Appunti vari teoria.md",
+    "reti",
+    "statistica/Tavole.pdf",
+    "statistica/Formulario Statistica.pdf",
+    "Senza nome.base",
+    "statistica/mike_appunti.pdf",
+    "statistica/Statistica.pdf",
+    "statistica/lezioni e altro/va_continue.pdf",
     "statistica/lezioni e altro/va_discrete.pdf",
     "statistica/lezioni e altro/5 Variabili casuali (04.10.2024).pdf",
-    "statistica/lezioni e altro",
-    "statistica/Nuova cartella",
     "Drawing 2025-11-27 20.01.41.excalidraw.md",
     "Excalidraw/Drawing 2025-11-27 18.51.47.excalidraw.md",
     "Senza nome.canvas",
-    "Excalidraw",
-    "Senza nome.base",
     "analisi/Definizioni utili.md",
     "analisi/Pasted image 20250702200224.png",
     "analisi/Argomenti fatti.md",
-    "analisi/Definizioni_utili_definitivo.pdf",
-    "analisi/Definizioni_utili_5.pdf",
     "linguaggi/Definizioni da imparare.md",
     "linguaggi/Pumping Lemma.md",
-    "analisi/Definizioni_utili_4.pdf",
     "analisi/Pasted image 20250605191849.png",
     "analisi/Pasted image 20250605191411.png",
     "analisi/Pasted image 20250605172425.png",

@@ -81,7 +81,7 @@ si scrive $X \sim geo(p)$ e si dice *v.a. geometrica di parametro* $p$.
 ## V.A. Poisson
 Una v.a. si dice che ha **legge di Poisson di parametro** $\lambda$ ($\lambda > 0$), e si scrive $X \sim P(\lambda)$ se:
 - $cod(X) = \mathbb{N} \cup \{0\} = \{0,1,2,...\}$;
-- $P(X=k) = e^{-\lambda} \frac{\lambda^k}{k!}, k \geq 0$.
+- $P(X=k) = \frac {e^{-\lambda} \lambda^k}{k!}, k \geq 0$.
 
 Questa v.a. è **associabile alla binomiale** se, data $X \sim b(n,p)$ **con $n$ "grande" e $p$ piccola** t.c. $np = \lambda$, allora $X$ si può approssimare con una Poisson di parametro $\lambda$ ($X \approx P(\lambda), \lambda = np$). Utile per **semplificare i calcoli**.
 
@@ -150,7 +150,7 @@ Se $Y \sim N(\mu, \sigma^2)$ e $X \sim N(0,1)$, allora:
 - $E(Y) = E(\sigma X + \mu) = \sigma E(X) + \mu$
 - $V(Y) = E(\sigma X + \mu) = \sigma^2 V(X)$
 ## V.A. Chi-quadro
-Siano $X_1, ..., X_n$ v.a. indipendenti, $X_i \sim n(0,1) \ \forall i = 1,...,n$. Allora, detta $X = X^2_1 + X^2_2 + ... + X^2_n$, si dice che $X$ ha *legge Chi-quadro con $n$ gradi di libertà (o di parametro $n$)* e si scrive $X \sim \chi^2_n$.
+Siano $X_1, ..., X_n$ v.a. indipendenti, $X_i \sim N(0,1) \ \forall i = 1,...,n$. Allora, detta $X = X^2_1 + X^2_2 + ... + X^2_n$, si dice che $X$ ha *legge Chi-quadro con $n$ gradi di libertà (o di parametro $n$)* e si scrive $X \sim \chi^2_n$.
 Oss:
 $$
 X \sim N(0,1) \Rightarrow X^2 \sim \chi^2_1
@@ -208,5 +208,14 @@ Proposizioni varie:
 
 - Per $X = (X_1,...,X_n)$ campione uniforme $X_i \sim U(\theta)$.$$\theta = max(X_1,...,X_n)$$$\theta$ si stima col **massimo tra i valori del campione**.
 
+| **Distribuzione di X e Y**     | **Somma (X+Y)**   | **Prodotto (XY)**    | **Note Importanti**                                                              |
+| ------------------------------ | ----------------- | -------------------- | -------------------------------------------------------------------------------- |
+| **Normali** $N(\mu, \sigma^2)$ | **Normale**       | **Non Normale**      | La somma somma medie e varianze.                                                 |
+| **Chi-quadrato** $\chi^2_k$    | **Chi-quadrato**  | **Non Chi-quadrato** | I gradi di libertà si sommano: $k_1 + k_2$.                                      |
+| **Poisson** $P(\lambda)$       | **Poisson**       | **Non Poisson**      | Il nuovo parametro è $\lambda_1 + \lambda_2$.                                    |
+| **Bernoulli** $Be(p)$          | **Binomiale**     | **Bernoulli**        | La somma di $n$ Bernoulli i.i.d. è $B(n, p)$. Il prodotto $XY \sim Be(p_1 p_2)$. |
+| **Binomiali** $B(n, p)$        | **Binomiale**     | **Non Binomiale**    | Solo se hanno lo stesso $p$. Si sommano gli $n$.                                 |
+| **t-Student**                  | **Non t-Student** | **Non t-Student**    | Tende alla Normale per grandi gradi di libertà.                                  |
 
-==TODO: aggiungere indicazioni operative sulle somme, prodotti ecc. tra variabili aleatorie, intervalli di fiducia e test vari.==
+
+==Intervalli di fiducia e test vari sono disponibili sul formulario del professore==
