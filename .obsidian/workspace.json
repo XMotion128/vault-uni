@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "5bab8265b952d7e5",
+        "id": "925306856d08b9e7",
         "type": "tabs",
         "children": [
           {
-            "id": "4228039ba89c579e",
+            "id": "ec8fac3fd952a751",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "statistica/Appunti vari teoria.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -181,12 +181,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "edba7f5bc679fb72",
+  "active": "ec8fac3fd952a751",
   "lastOpenFiles": [
-    "statistica/Tavole.pdf",
     "statistica/Formulario Statistica.pdf",
-    "Senza nome.base",
     "statistica/Appunti vari teoria.md",
+    "statistica/Tavole.pdf",
+    "Senza nome.base",
     "Nuovo Documento di testo.txt",
     "reti/Appunti reti.md",
     "statistica/Appunti_statistica_chri.pdf",
