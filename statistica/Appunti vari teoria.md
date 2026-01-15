@@ -197,7 +197,7 @@ Proposizioni varie:
 \sum_{k \in cod(X)} k^m P(X=k) \ \ \text{ per v.a. discrete} \\ \\
 \int^{+\infty}_{-\infty} t^m f_X(t) dt \ \ \text{ per v.a. continue} \end{cases}$$
 La varianza di $X$ $V(X)$ è definita come segue:$$V(X) := E[(X - E(X))^2)]$$
-La covarianza di $X, Y$ è definita come segue:$$cov(X, Y) := E[(X-E(X)) (Y-E(Y))]$$e se $X = Y$, allora:$$cov(X, X) = E[(X-E(X))^2] \ V(X)$$
+La covarianza di $X, Y$ è definita come segue:$$cov(X, Y) := E[(X-E(X)) (Y-E(Y))]$$e se $X = Y$, allora:$$cov(X, X) = E[(X-E(X))^2] = V(X)$$
 Formula operativa della covarianza:$$cov(X, Y) = E(XY) - E(X) \ E(Y)$$
 
 Proposizioni varie:
