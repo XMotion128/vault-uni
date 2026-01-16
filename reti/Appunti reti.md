@@ -91,13 +91,67 @@ ex (type A record):
 
 - **Name**: nome simbolico dell'host a cui il record fa riferimento;
 - **Value**: cambia in base al tipo del record:
-	- Tipo **A**: indirizzo IP corrispondente;
+	- Tipo **A-AAAA**: indirizzo IPv4/IPv6 corrispondente;
 	- Tipo **MX**: nome del mail server che accetta messaggi per il dominio specificato;
 	- Tipo **CNAME**: nome canonico per l'host;
 	- Tipo **NS**: nome del name server a cui inoltrare la richiesta;
 - **Type**: tipo del record (spiegati sopra);
 - **Class**: permette di definire dei tipi;
 - **TTL**: tempo di validità del descrittore;
+
+Ogni server DNS possiede un record **SOA** (**Start Of Authority**), che contiene **informazioni importanti sul dominio**, come riferimenti all'amministratore, ultimo aggiornamento del dominio e altro.
+
+# Indirizzamento dei processi e porte nel livello di trasporto
+
+- **Multiplexing/Demultiplexing:** Il livello di trasporto permette la convivenza di più applicazioni su un host inviando i flussi al processo corretto;
+- **Numeri di Porta:** Identificativi a **16 bit** locali all'host. Il kernel di destinazione legge la porta e recapita il segmento/datagramma al processo;
+- **Assegnazione:** Esistono fasce di porte riservate, altre per l'assegnazione automatica ai client e altre destinate ai processi utente.
+
+## UDP: Semplicità e Minimo Overhead
+
+- **Servizio:** Connectionless (senza connessione);
+- **Funzionamento:** Il mittente costruisce un datagramma, specifica la coppia **(IP, Porta)** del destinatario e lo invia;
+- **Affidabilità:** Non garantita (nessun ordine, nessuna conferma/ACK, nessun controllo di flusso);
+- **Errori:** Rilevazione opzionale tramite **Checksum**;
+- **Vantaggi:** Overhead minimo e bassa latenza. Ideale per scambi richiesta-risposta semplici, telemetria o applicazioni che tollerano perdite gestendo la logica internamente.
+
+### Formato del Segmento UDP
+Campi principali dell'**header UDP**:
+- **Numeri di porta (client/server)**: Identificano con precisione il servizio/canale che si utilizza;
+- **Lunghezza header UDP**;
+- **Checksum**: per verificare la correttezza del segmento.
+
+## TCP: Stream Affidabile e Full-Duplex
+- **Servizio:** Orientato alla connessione e affidabile;
+- **Comunicazione:** Punto-punto e Full-Duplex (invio e ricezione parallela tra due endpoint);
+- **Gestione Flusso:** L'applicazione scrive un flusso continuo di byte; TCP lo segmenta in unità adatte al livello sottostante e lo riassembla nell'ordine corretto a destinazione.
+
+### Ritrasmissione e Temporizzazione
+- **Meccanismo:** TCP attende un **ACK** per ogni segmento. Se il timer di ritrasmissione (**RTO - Retransmission Timeout**) scade, il segmento viene reinviato;
+- **RTO Dinamico:** Stimato in base al **RTT (Round-Trip Time)** misurato, per bilanciare reattività ed efficienza.
+
+### Controllo di Flusso
+- **Obiettivo:** Impedire che il mittente sovraccarichi il buffer del destinatario;
+- **Finestra:** Il ricevitore annuncia una **Advertised Window** (spazio libero nel buffer);
+- **Sliding Window:** Schema a finestra scorrevole che avanza con l'arrivo dei riscontri e il consumo dei dati da parte del destinatario;
+- **ACK Cumulativi:** Confermano tutti i byte fino a una determinata sequenza;
+- **Effective Window:** Quantità di dati effettivamente inviabile; se $\le 0$, il mittente attende o sonda la rete.
+
+### Controllo di Congestione
+- **Logica:** TCP interpreta la perdita di pacchetti come sintomo di congestione della rete (non solo del ricevitore);
+- **Azione:** Modula la velocità di invio per prevenire il collasso della rete, riducendo l'invio in caso di problemi e aumentandolo se la rete è libera.
+
+### Gestione della Connessione TCP
+- **Apertura:** Avviene tramite **Three-way Handshake** (3 segmenti con flag **SYN**) per concordare i numeri di sequenza iniziali in entrambe le direzioni;
+- **Chiusura:** Ordinata, avviene in 4 segmenti (flag **FIN**) per garantire che i dati in transito non vadano persi.
+
+### Formato del Segmento TCP
+Campi principali dell'**header TCP**:
+- **Numeri di porta (client/server)**: Identificano con precisione il servizio/canale che si utilizza;
+- **Sequence Number:** Identifica il primo byte del segmento nel flusso;
+- **Numero di Riscontro (ACK):** Indica il prossimo byte atteso dal ricevitore, dando conferma di ricezione dei precedenti;
+- **Finestra:** Dimensione del buffer pubblicata dal ricevitore;
+- **Flag:** Coordinano apertura, chiusura e controllo della sessione.
 
 # Routing
 La funzione di **instradamento** (routing) è gestita a **livello di rete** dai router mediante **routing table**. La topologia della rete può essere rappresentata come un grafo, formato dai nodi (host e router) e archi (collegamenti).
@@ -151,7 +205,7 @@ Il **reliable flooding** consiste nel:
 Per il calcolo del cammino minimo viene utilizzato l'**algoritmo di Dijkstra**.
 
 ### Routing gerarchico
-Al **crescere del numero di nodi** della rete, il **tempo** richiesto dal routing diventa **proibitivo**; per risolvere la questo problema, la rete viene **suddivisa in regioni**, dette **sistemi autonomi** (AS), organizzati **gerarchicamente**. Ovviamente, questa soluzione prevede una suddivisione logica tra instradamento all'interno di un AS (Internal Gateway) e instradamento tra vari AS (Exterior Gateway).
+Al **crescere del numero di nodi** della rete il **tempo** richiesto dal routing diventa **proibitivo** e per risolvere la questo problema, la rete viene **suddivisa in regioni**, dette **sistemi autonomi** (AS), organizzati **gerarchicamente**. Ovviamente, questa soluzione prevede una suddivisione logica tra instradamento all'interno di un AS (Internal Gateway) e instradamento tra vari AS (Exterior Gateway).
 I protocolli utilizzati per il routing interno ad un AS (Interior Gateway Protocols) sono:
 - **Routing Information Protocol** (RIP): basato sul distance vector routing;
 - **Open Shortest Path First** (OSPF): basato sul link state routing.
@@ -159,8 +213,48 @@ Il protocollo utilizzato per il routing tra AS (Exterior Gateway Protocols) è:
 - **Border Gateway Protocol** (BGP).
 
 # Internet Protocol (IP)
-Fornisce un metodo best-effort per trasportare datagrammi dalla sorgente alla destinazione, indipendentemente dall'esistenza di reti intermedie lungo il percorso.
+Ci sono due tipi di instradamento dei pacchetti:
+- **Virtual circuit**: **orientato alla connessione**, viene **stabilito il percorso** (e fisicamente "occupato" dalla connessione) e **tutti i pacchetti** relativi a quella connessione **seguiranno il percorso** stabilito;
+- **Datagram**: **non orientato alla connessione**, ogni pacchetto segue un **percorso differente**. Può accadere che i pacchetti **non arrivino in ordine/non arrivino affatto**.
+
+Il **protocollo IP** Fornisce un metodo **best-effort** per trasportare **datagrammi** dalla sorgente alla destinazione, **indipendentemente dall'esistenza di reti intermedie** lungo il percorso.
 Caratteristiche:
-- Non orientato alla connessione;
-- Non affidabile;
-- Frammentazione (i datagrammi IP arrivano fino a 64 KB).
+- **Non orientato alla connessione**;
+- **Non affidabile**;
+- **Frammentazione**: per adattarsi all'**MTU** (**unità massima di trasmissione**, diversa per ogni tipo di collegamento) i datagrammi IP possono essere **frammentati**, arrivando a frammenti di dimensione massima di 64 KB, per poi essere riassemblati una volta raggiunto l'host di destinazione.
+
+## Formato datagramma IP
+I campi principali dell'header IP sono:
+- **Version**: indica la versione (IPv4/IPv6);
+- **Lunghezza header**;
+- **Lunghezza datagramma**;
+- **Offset di frammentazione**: utile a **ricostruire il pacchetto** a destinazione;
+- **TTL**;
+- **Checksum**;
+- **Indirizzi IP di mittente e destinatario**;
+
+# DHCP
+Il **DHCP** è un protocollo client-server che permette la **configurazione automatica degli host** (plug-and-play). Fornisce parametri essenziali: IP dinamico (a rinnovo periodico tramite **lease**), subnet mask, default gateway e server DNS.
+
+## Funzionamento (Processo DORA):
+- **Discover:** L'host invia un broadcast per individuare i server DHCP attivi.
+- **Offer:** Il server risponde con una proposta di configurazione e relativo tempo di lease.
+- **Request:** L'host accetta l'offerta inviando una richiesta formale (in broadcast per notificare tutti gli eventuali server DHCP sulla rete che la loro offerta non è stata accettata).
+- **ACK:** Il server conferma l'assegnazione e il client configura l'interfaccia.
+- **Rinnovo:** Prima della scadenza del lease, l'host contatta il server per estendere la durata della locazione dell'IP.
+
+# NAT
+Il **Network Address Translation** è un **meccanismo** che consente di **mappare gli indirizzi di reti private**, includendo eventuali sottoreti, **ad un unico indirizzo IP pubblico**, **risparmiando** così **indirizzi** assegnabili e contemporaneamente **nascondendo la topologia della rete interna** **non permettendo** agli host di essere contattati **direttamente** dall'esterno. Il traffico di ritorno è reindirizzato correttamente ai vari host attraverso l'utilizzo di una **NAT Table**, che conserva al suo interno le **associazioni "indirizzo-porta interni" -> "indirizzo-porta esterni"**.
+
+# Sicurezza di rete
+## Proprietà fondamentali (**CIA**):
+- **Riservatezza** (**Confidentiality**): solo i comunicanti devono **comprendere il contenuto** dei messaggi scambiati;
+- **Integrità** (**Integrity**): i comunicanti devono essere sicuri che il contenuto dei messaggi **non subisca alterazioni** durante la trasmissione;
+- **Disponibilità** (**Availability**): i servizi devono essere **accessibili a chi è legittimamente autorizzato**.
+
+## Altre proprietà
+- **Autenticità** (**autenticazione**): l'**identificazione univoca e certa di un host**. Può essere **semplice** (solo mittente) o **mutua** (sia mittente che destinatario);
+- **Non ripudio**: proprietà garantita attraverso la presenza di **integrità** e **autenticità**, consiste nella **prova formale** che una certa persona ha **sottoscritto** un documento.
+
+==Aggiungere descrizioni dei diversi tipi di attacco informatico==
+
