@@ -247,14 +247,85 @@ Il **DHCP** è un protocollo client-server che permette la **configurazione auto
 Il **Network Address Translation** è un **meccanismo** che consente di **mappare gli indirizzi di reti private**, includendo eventuali sottoreti, **ad un unico indirizzo IP pubblico**, **risparmiando** così **indirizzi** assegnabili e contemporaneamente **nascondendo la topologia della rete interna** **non permettendo** agli host di essere contattati **direttamente** dall'esterno. Il traffico di ritorno è reindirizzato correttamente ai vari host attraverso l'utilizzo di una **NAT Table**, che conserva al suo interno le **associazioni "indirizzo-porta interni" -> "indirizzo-porta esterni"**.
 
 # Sicurezza di rete
+La **sicurezza di una rete** **non** viene realizzata attraverso un **singolo meccanismo**, ma attraverso una **serie di strumenti e pratiche** che consentono la protezione dei servizi, degli individui e dei dati.
 ## Proprietà fondamentali (**CIA**):
-- **Riservatezza** (**Confidentiality**): solo i comunicanti devono **comprendere il contenuto** dei messaggi scambiati;
-- **Integrità** (**Integrity**): i comunicanti devono essere sicuri che il contenuto dei messaggi **non subisca alterazioni** durante la trasmissione;
-- **Disponibilità** (**Availability**): i servizi devono essere **accessibili a chi è legittimamente autorizzato**.
+- **Riservatezza** (**Confidentiality**): solo i comunicanti devono **comprendere il contenuto** dei messaggi scambiati. Implementata attraverso **crittografia** e **meccanismi di autenticazione**;
+- **Integrità** (**Integrity**): i comunicanti devono essere sicuri che il contenuto dei messaggi **non subisca alterazioni** durante la trasmissione. Implementata attraverso **checksum** e **ridondanza**;
+- **Disponibilità** (**Availability**): i servizi devono essere **accessibili a chi è legittimamente autorizzato**. Implementata attraverso **ridondanza HW/SW** e **continuità operativa**.
 
 ## Altre proprietà
 - **Autenticità** (**autenticazione**): l'**identificazione univoca e certa di un host**. Può essere **semplice** (solo mittente) o **mutua** (sia mittente che destinatario);
 - **Non ripudio**: proprietà garantita attraverso la presenza di **integrità** e **autenticità**, consiste nella **prova formale** che una certa persona ha **sottoscritto** un documento.
 
-==Aggiungere descrizioni dei diversi tipi di attacco informatico==
+==Aggiungere descrizioni dei diversi tipi di attacco informatico dal file di Giorgio==
 
+# Firewall
+Solitamente implementato nei router e nei singoli host, il firewall è l'**unico punto di connessione** tra una rete privata e il resto di internet. Esso si occupa di **filtrare il traffico** di rete attraverso delle **Access Control Lists** (**ACL**). Può essere di tre tipi:
+- a filtraggio di pacchetti (**packet filter**): il firewall decide se consentire o negare l'accesso ai singoli pacchetti in entrata o uscita in base a diversi criteri: IP sorgente e destinazione, porte sorgente e destinazione, tipo di messaggio ICMP e bit TCP SYN o ACK. La **tipica configurazione** è quella di eliminare tutti i pacchetti non esplicitamente consentiti (**default deny policy**);
+- a filtraggio di pacchetti con memoria dello stato (**stateful filter**): il firewall traccia lo stato di ogni connessione TCP. Questo consente al firewall di decidere se i pacchetti in entrata/uscita "hanno senso" in base allo stato della connessione;
+- a livello applicazione (**application gateway**): permette il filtraggio basandosi sul protocollo applicativo. Può essere usato in combinazione con un packet filter per escludere determinati host dall'inizializzare connessioni di un determinato protocollo applicativo.
+
+# IDS
+I **sistemi di rilevamento delle intrusioni** **esaminano** il contenuto dei pacchetti su **più livelli**, rilevando un'ampia gamma di attacchi. Essi sono di due tipi:
+- **basati sulle firme**: richiedono una **conoscenza pregressa dell'attacco**, individuano gli attacchi attraverso un **database di firme**, che rappresentano l'**insieme di regole associate ad attività di intrusione**;
+- **basati su anomalie**: notano **flussi di pacchetti insoliti** creando un **profilo di traffico in situazioni normali**. A differenza degli IDS basati su firme **non fanno affidamento alla conoscenza di attacchi già avvenuti**.
+
+# Crittografia
+**Procedimento** che consiste nella **cifratura** e **decifratura** di messaggi basato su **funzioni parametriche**. La segretezza della cifratura dipende dalla **segretezza della chiave** piuttosto che segretezza dell'algoritmo.
+**Tecniche per trasformare** il testo in chiaro in testo cifrato:
+- **Sostituzione**: ogni elemento del messaggio in chiaro è **trasformato** in un altro elemento;
+- **Trasposizione**: gli elementi del messaggio sono **riorganizzati**;
+**Tipi di algoritmi** di crittografia:
+- **Simmetrico**: nel caso di utilizzo di una **sola chiave**, valida per cifratura e decifratura;
+- **Asimmetrico**: nel caso di utilizzo di una **coppia di chiavi**, quindi chiavi diverse per cifratura e decifratura. Questo tipo di algoritmi è più costoso computazionalmente rispetto agli algoritmi simmetrici;
+**Come** può essere **elaborato** il testo in chiaro:
+- **A blocchi:** il messaggio è suddiviso a blocchi di **dimensione fissa**, la funzione agisce su ogni blocco;
+- **A flusso**: la funzione può elaborare messaggi di **lunghezza arbitraria**.
+
+## Crittoanalisi
+Processo in cui si tenta di **risalire al testo in chiaro o alla chiave usata**. Gli algoritmi di cifratura sono **progettati per resistere ad attacchi di brute-forcing**. Un sistema di cifratura è detto **computazionalmente sicuro** se:
+- il **costo** per rendere inefficace il cifrario supera il valore dell'informazione cifrata;
+- il **tempo richiesto** per rendere inefficace il cifrario supera l'arco temporale in cui l'informazione è utile.
+
+Nelle comunicazioni viene usato un **mix** dei due tipi di algoritmi di cifratura:
+- Si usa la **crittografia asimmetrica** per lo **scambio della chiave di sessione**;
+- Si usa la **chiave di sessione**, concordata a priori, per **cifrare e decifrare i messaggi** usando **algoritmi simmetrici**.
+In questo modo si **tutela la riservatezza** della comunicazione, ma se volessimo garantire integrità e autenticità?
+
+## Funzione hash crittografica
+Usata per verificare l'integrità di un messaggio. Questa funzione prende in input il messaggio (di lunghezza variabile) e produce come output una stringa di lunghezza fissa, chiamata **message digest**. La funzione di hash è sicura se è:
+- **libera da collisioni**: computazionalmente **impossibile trovare due messaggi** tali da produrre **digest uguali**;
+- **unidirezionale**: dato il digest, è **impossibile determinare il messaggio iniziale**.
+
+### Message autentication code (MAC)
+Nel concreto, per garantire l'**integrità** e **autenticità** (**solo tra le due parti**) del messaggio:
+- Alice **crea il messaggio** e **calcola il MAC (dando in input lo shared secret concordato in precedenza e messaggio)**;
+- Alice **concatena al messaggio il tag (il digest del MAC)**, creando un messaggio esteso che viene inviato a Bob;
+- Bob riceve il messaggio esteso e **calcola il tag del messaggio iniziale usando la chiave (shared secret) concordata**;
+- Se il **tag prodotto corrisponde a quello concatenato** nel messaggio di Alice, **il messaggio non è stato alterato**.
+
+### Firma digitale
+La **firma digitale** consiste nell'utilizzo di una **coppia di chiavi**, una chiave **pubblica** e una **privata**, possedute da **ogni host**. A differenza del MAC, utilizzare la firma digitale garantisce il **non ripudio** (poichè la **coppia di chiavi è univoca** per ogni host). Gli **hash** dei messaggi vengono **cifrati** utilizzando la **propria chiave privata** e **decifrati** usando la **chiave pubblica**, e in questo modo è possibile **garantire il non ripudio**. Le **Certification Authority** (**CA**) sono dei **soggetti terzi di fiducia** che si occupano di **identificare in modo certo** chi **richiede una certificazione** della propria **chiave pubblica**. Le CA, dopo aver accettato la richiesta di certificazione, **generano il certificato firmandolo con la propria chiave privata**. Colui che riceverà la certificazione la **invierà durante le connessioni** per **garantire la propria identità**.
+
+## Sicurezza nella pila di protocolli di internet
+È possibile individuare **meccanismi di sicurezza** in **diversi livelli** della pila TCP/IP. A livello **applicazione**, ad esempio, è necessario garantire **riservatezza, autenticazione dei comunicanti e integrità dei messaggi**. Un esempio di programma di sicurezza per il livello applicativo è **PGP** (**Pretty Good Privacy**), che assicura:
+- **Riservatezza**;
+- **Integrità**;
+- **Autenticazione** mittente.
+
+Al livello di **trasporto** i sistemi di sicurezza, diventati **standard**, usati sono **SSL** (**Secure Socket Layer**) e **TLS** (**Transport Layer Security**). Essi garantiscono:
+- **Riservatezza**;
+- **Integrità**
+- **Autenticazione del server**;
+- Autenticazione del client (opzionale).
+**SSL prevede**, dopo la fase di handshaking TCP, **una sua fase di handshake**, nella quale il **client richiede la certificazione del server** e **insieme concordano i parametri, gli algoritmi di cifratura usati e vengono generate le chiavi** di sessione e MAC **partendo da uno shared secret**.
+
+A livello di **rete**, i sistemi di sicurezza sono implementati dal framework **IPSec**. I protocolli principali usati da IPSec per gestire la sicurezza dei dati sono:
+- **AH** (**Authentication Header**): fornisce **integrità** e **autenticazione** dell'origine ma **non garantisce riservatezza**;
+- **ESP** (**Encapsulating Security Payload**): garantisce **riservatezza**, **integrità** e **autenticazione**;
+IPSec funziona in due modalità:
+- **trasporto**: usato per comunicazioni **end-to-end**, viene **cifrato solo il payload** del pacchetto, ma non l'header IP;
+- **tunnel**: il **pacchetto originale viene cifrato e incapsulato in un nuovo pacchetto IP**. Il nuovo header mostra gli **indirizzi dei gateway**. Usato per comunicazioni tra router o VPN.
+La **gestione delle chiavi** è implementata attraverso **scambi**:
+- **manuali**;
+- **automatici**: attraverso **Internet Security Association** (**SA**) e **Key Management Protocol** (**ISAKMP**).

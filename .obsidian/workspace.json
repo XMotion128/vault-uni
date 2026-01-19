@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "fe9e0974abaf772d",
+        "id": "8d9aa0df4200bebe",
         "type": "tabs",
         "children": [
           {
-            "id": "9925bf4177327bba",
+            "id": "912727b1170a9244",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -177,10 +177,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9925bf4177327bba",
+  "active": "912727b1170a9244",
   "lastOpenFiles": [
-    "reti/appunti_giorgio.pdf",
+    "reti/Concetti frequenti nelle tracce.md",
+    "reti/Domande Reti di Calcolatori Esame.pdf",
     "reti/Appunti reti.md",
+    "reti/appunti_giorgio.pdf",
+    "reti/~$empio traccia 2.docx",
+    "reti/Esempio traccia 2.docx",
     "statistica/Appunti vari teoria.md",
     "statistica/Formulario Statistica.pdf",
     "statistica/Tavole.pdf",
@@ -188,9 +192,6 @@
     "Nuovo Documento di testo.txt",
     "statistica/Appunti_statistica_chri.pdf",
     "reti",
-    "statistica/mike_appunti.pdf",
-    "statistica/Statistica.pdf",
-    "statistica/lezioni e altro/va_continue.pdf",
     "Drawing 2025-11-27 20.01.41.excalidraw.md",
     "Excalidraw/Drawing 2025-11-27 18.51.47.excalidraw.md",
     "Senza nome.canvas",

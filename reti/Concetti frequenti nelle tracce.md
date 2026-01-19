@@ -1,0 +1,8 @@
+- request/response header http (ricorda che vuole il percorso relativo della risorsa);
+- tipo di ritardo;
+- commutazione circuito/pacchetto;
+- sequenza header durante l'impacchettamento del messaggio;
+- reti con servizi con connessione (virtual circuit) o senza connessione (datagram);
+- caratteristiche algoritmi routing (statico, dinamico, decentralizzato, globale);
+- proprietà sicurezza di rete;
+- tipi di attacchi informatici e quali proprietà compromettono;
