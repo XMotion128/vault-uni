@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8d9aa0df4200bebe",
+        "id": "c105abee545a45d5",
         "type": "tabs",
         "children": [
           {
-            "id": "912727b1170a9244",
+            "id": "d95653b7c90c2e0a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "reti/Appunti reti.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Appunti reti"
             }
           }
         ]
@@ -177,12 +181,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "912727b1170a9244",
+  "active": "d95653b7c90c2e0a",
   "lastOpenFiles": [
-    "reti/Concetti frequenti nelle tracce.md",
-    "reti/Domande Reti di Calcolatori Esame.pdf",
-    "reti/Appunti reti.md",
     "reti/appunti_giorgio.pdf",
+    "reti/Appunti reti.md",
+    "reti/Domande Reti di Calcolatori Esame.pdf",
+    "reti/Concetti frequenti nelle tracce.md",
     "reti/~$empio traccia 2.docx",
     "reti/Esempio traccia 2.docx",
     "statistica/Appunti vari teoria.md",

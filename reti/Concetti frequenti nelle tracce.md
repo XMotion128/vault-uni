@@ -6,3 +6,4 @@
 - caratteristiche algoritmi routing (statico, dinamico, decentralizzato, globale);
 - proprietà sicurezza di rete;
 - tipi di attacchi informatici e quali proprietà compromettono;
+- tipi di controlli tcp (di flusso, di congestione ecc)

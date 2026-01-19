@@ -128,7 +128,7 @@ Campi principali dell'**header UDP**:
 
 ### Ritrasmissione e Temporizzazione
 - **Meccanismo:** TCP attende un **ACK** per ogni segmento. Se il timer di ritrasmissione (**RTO - Retransmission Timeout**) scade, il segmento viene reinviato;
-- **RTO Dinamico:** Stimato in base al **RTT (Round-Trip Time)** misurato, per bilanciare reattività ed efficienza.
+- **RTO Dinamico:** Stimato in base al **RTT (Round-Trip Time, tempo impiegato a ricevere l'ACK dall'invio del messaggio)** misurato, per bilanciare reattività ed efficienza.
 
 ### Controllo di Flusso
 - **Obiettivo:** Impedire che il mittente sovraccarichi il buffer del destinatario;
@@ -139,7 +139,7 @@ Campi principali dell'**header UDP**:
 
 ### Controllo di Congestione
 - **Logica:** TCP interpreta la perdita di pacchetti come sintomo di congestione della rete (non solo del ricevitore);
-- **Azione:** Modula la velocità di invio per prevenire il collasso della rete, riducendo l'invio in caso di problemi e aumentandolo se la rete è libera.
+- **Azione:** Modula la velocità di invio per prevenire il collasso della rete, riducendo l'invio in caso di problemi e aumentandolo se la rete è libera. Solitamente si adotta una politica di incremento additivo e decremento moltiplicativo della finestra di congestione: si aumenta di volta in volta il numero di pacchetti inviabili in caso di rete libera. Viene dimezzato il numero di pacchetti inviabili nel caso di rilevazione di congestione.
 
 ### Gestione della Connessione TCP
 - **Apertura:** Avviene tramite **Three-way Handshake** (3 segmenti con flag **SYN**) per concordare i numeri di sequenza iniziali in entrambe le direzioni;
