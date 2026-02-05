@@ -4,7 +4,7 @@ Prova di Laboratorio di PROGETTAZIONE DI BASI DI DATI
 C.d.S. in Informatica e Tecnologie per la Produzione del Software (3 anni)
 Docente: dott.ssa Francesca A. Lisi
 
-4 Febbraio 2015
+20 Gennaio 2015
 
 -------------------------------------
 Cognome e Nome	:
@@ -18,7 +18,7 @@ package application;
 
 import java.sql.*;
 
-public class ProvaDB20150204 {
+public class ProvaDB20150120 {
 
 	public static void main(String[] args) {
 		// sezione dichiarazione variabili locali
@@ -52,7 +52,7 @@ public class ProvaDB20150204 {
 			// caricamento del driver
 			new com.mysql.jdbc.Driver();
 			/*
-			  creazione di una connessione al database HenrysBooksDB20140204
+			  creazione di una connessione al database HenrysBooksDB20140120
 			  con credenziali di accesso appropriate
 			 */
 			connessione = DriverManager.getConnection();
@@ -67,7 +67,7 @@ public class ProvaDB20150204 {
 			Statement istruzione2 = connessione.createStatement();
 			num = istruzione2.executeUpdate(stringa2);
 			
-			System.out.println("\n Il numero di inserimenti fatti nella tabella Filiali è: " + num + " ");
+			System.out.println("\n Il numero di tuple eliminate dalla tabella Editori ï¿½: " + num + " ");
 			
 			
 			// es. 3: esecuzione comando SQL
@@ -81,7 +81,7 @@ public class ProvaDB20150204 {
 			Statement istruzione4 = connessione.createStatement();
 			ResultSet risultato4 = istruzione4.executeQuery(stringa4);
 			
-			System.out.println("\n Il contenuto della vista LibriDisponibili_HD è:");
+			System.out.println("\n Il contenuto della vista LibriPubblicati_NY ï¿½:");
 			while (risultato4.next()) {
 
 			}
@@ -90,7 +90,7 @@ public class ProvaDB20150204 {
 			Statement istruzione5 = connessione.createStatement();
 			ResultSet risultato5 = istruzione5.executeQuery(stringa5);
 			
-			System.out.println("\n I titoli ed il numero di copie disponibili dei libri in vendita presso ciascuna filiale sono:");
+			System.out.println("\n Gli autori di libri pubblicati da editori dello stato di New York sono:");
 			while (risultato5.next()) {
 
 			}
@@ -99,7 +99,7 @@ public class ProvaDB20150204 {
 			Statement istruzione6 = connessione.createStatement();
 			ResultSet risultato6 = istruzione6.executeQuery(stringa6);
 			
-			System.out.println("\n Il titolo del libro meno costoso fra quelli disponibili presso la filiale 'Henrys Downtown' è:");
+			System.out.println("\n I libri in ordine alfabetico di titolo sono:");
 			while (risultato6.next()) {
 
 			}
@@ -108,7 +108,7 @@ public class ProvaDB20150204 {
 			Statement istruzione7 = connessione.createStatement();
 			ResultSet risultato7 = istruzione7.executeQuery(stringa7);
 			
-			System.out.println("\n I libri che non sono disponibili presso la filiale 'Henrys Downtown' sono:");
+			System.out.println("\n Il numero ed il prezzo medio dei libri pubblicati da ciascun editore:");
 			while (risultato7.next()) {
 
 			}
