@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1cdcf3abfbec63aa",
+        "id": "963d225e6a9f7062",
         "type": "tabs",
         "children": [
           {
-            "id": "4165b2697df63117",
+            "id": "9fad87c450f3a20f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -195,10 +195,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4165b2697df63117",
+  "active": "9fad87c450f3a20f",
   "lastOpenFiles": [
     "analisi/Argomenti fatti.md",
     "basi/Approccio agli esercizi delle tracce.md",
+    "analisi/Definizioni utili.md",
     "basi/Approccio agli esercizi delle tracce.pdf",
     "statistica/Formulario Statistica.pdf",
     "statistica/Appunti vari teoria.md",
@@ -217,7 +218,6 @@
     "Nuovo Documento di testo.txt",
     "Drawing 2025-11-27 20.01.41.excalidraw.md",
     "Excalidraw/Drawing 2025-11-27 18.51.47.excalidraw.md",
-    "analisi/Definizioni utili.md",
     "analisi/Pasted image 20250702200224.png",
     "linguaggi/Definizioni da imparare.md",
     "linguaggi/Pumping Lemma.md",

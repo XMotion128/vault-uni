@@ -543,6 +543,8 @@ $$
 $$
 \exists \lim_{n \rightarrow + \infty} a_n = \{ \inf{a_n} : n \in \mathbb{N}\} > - \infty
 $$
+- monotona **crescente** e **non superiormente limitata**, allora$$\exists \lim_{n \to +\infty} a_n = \sup \{ a_n : n \in \mathbb{N} \} = +\infty$$
+- monotona **decrescente** e **non inferiormente limitata**, allora$$\exists \lim_{n \to +\infty} a_n = \inf \{ a_n : n \in \mathbb{N} \} = -\infty$$
 ### Corollario
 Sia $(a_n)_n$ una **successione monotona** (crescente o decrescente). allora
 $$
@@ -1144,7 +1146,8 @@ Una serie numerica si dice:
 $$
 \sum_{n=0}^{+\infty} {q^n}, \ q \in \mathbb{R} \ (a_n = q^n)
 $$
-- **converge** se $|q| < 1$ e $S_0 = \sum_{k=0}^{+\infty} {q^k} = \frac{1}{1-q}$
+- **converge** se $|q| < 1$ e $S_0 = \sum_{k=0}^{+\infty} {q^k} = \frac{1}{1-q}$ 
+- Formula generale in caso di convergenza: $$\frac{\text{primo termine della serie (sostituisci a n il numero di partenza e calcoli)}}{1 - q}$$
 - **diverge** se $q > 1$
 - **irregolare** se $q \leq -1$
 
