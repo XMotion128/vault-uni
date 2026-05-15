@@ -974,6 +974,9 @@ y = f'(x_0) (x-x_0) + f(x_0)
 $$
 è detta **retta tangente al grafico** di $f$ **nel punto di ascissa** $x_0$ oppure nel punto ($x_0, f(x_0)$).
 
+## Derivabilità e continuità
+Ricorda che la derivabilità implica la continuità di $f$ (**se $f$ è derivabile, allora è continua**, ma non è detto il contrario).
+
 ## Derivata delle funzioni elementari
 - $f(x) = c, c \in \mathbb{R}$ (funzione costante): $f'(x) = 0$
 - $f(x) = x^\alpha$: $f'(x) = \alpha x^{\alpha - 1}$
@@ -1192,7 +1195,7 @@ Oss: in caso di serie a termini non negativi, avremo che $S_{n+1} \geq S_n \Righ
 Siano $\sum a_n$ e $\sum b_n$ due **serie a termini non negativi** ($a_n \geq 0, b_n \geq 0$) t.c. $a_n \leq b_n$ definitivamente.
 Valgono allora le seguenti implicazioni:
 - $\sum b_n$ **converge** $\Rightarrow \sum a_n$ **converge**
-- $\sum b_n$ **diverge** $\Rightarrow \sum a_n$ **diverge**
+- $\sum a_n$ **diverge** $\Rightarrow \sum b_n$ **diverge**
 
 ## Criterio del confronto asintotico
 Siano $(a_n)_n, (b_n)_n, \ a_n \geq 0, b_n \geq 0$.
@@ -1241,12 +1244,14 @@ allora $\sum_{n=0}^{+\infty} {(-1)^n \cdot a_n}$ **converge**.
 
 
 # Calcolo integrale
-Sia $f : [a, b] \rightarrow \mathbb{R}$ limitata. Suddividiamo l'intervallo $[a,b]$ in $n$ parti, individuando così i punti $x_0 = a, x_1, x_2,x_3,..., x_n-1 \ x_n = b, x_j = a + jh, h = \frac{b-a}{n}, j = 0,..., n$
+Sia $f : [a, b] \rightarrow \mathbb{R}$ limitata. Suddividiamo l'intervallo $[a,b]$ in $n$ parti, individuando così i punti $x_0 = a, x_1, x_2,x_3,..., x_{n-1} \ x_n = b, x_j = a + jh, h = \frac{b-a}{n}, j = 0,..., n$
 $$
 S_n = \frac{b-a}{n} \sum_{j=1}^{n} f(zj)
 $$
-
-Diciamo che $f : [a, b] \rightarrow \mathbb{R}$ limitata è **integrabile secondo Riemann** in $[a, b]$ se, considerata una qualsiasi somma $S_n$ definita in $S_n$ detta **somma di Cauchy-Riemann**
+$$
+\text{dove } zj \text{ è un punto arbitrario} \in [x_{j-1}, x_j]
+$$l'intervallo $[x_{j-1}, x_j]$ indica la base del $j$-esimo rettangolo.
+Diciamo che $f : [a, b] \rightarrow \mathbb{R}$ limitata è **integrabile secondo Riemann** in $[a, b]$ se, considerata una qualsiasi somma $S_n$, detta **somma di Cauchy-Riemann**
 $$
 \exists \lim_{n \rightarrow +\infty} S_n < +\infty
 $$
@@ -1254,19 +1259,18 @@ che non dipende da $zj$. In tal caso si pone
 $$
 \lim_{n \rightarrow +\infty} S_n = \int_{a}^{b} f(x) \ dx
 $$
-
 ## Classi di funzioni integrabili
 - se $f : [a,b] \rightarrow \mathbb{R}$ è **continua**, allora $f$ è **integrabile**
 - se $f : [a,b] \rightarrow \mathbb{R}$ è **monotona**, **limitata** allora $f$ è **integrabile**
 
 **Teorema**: siano $f1 : [a,c] \rightarrow \mathbb{R}$ e $f2 : [c,b] \rightarrow \mathbb{R}$ integrabili. Allora
 $$
-f(x)
+f(x) :=
 $$
 - $f1(x) \ [a,c]$
 - $f2(x) \ [c,b]$
 
-è integrabile in $[a,b]$.
+è integrabile in $[a,b]$ (la somma degli integrali delle due funzioni nei due intervalli restituisce il valore dell'integrale tra a e b di f(x)).
 
 ## Proprietà dell'integrale
 Siano $f, g : [a,b] \rightarrow \mathbb{R}$ integrabili.
@@ -1331,5 +1335,3 @@ $$
 DA RIVEDERE:
 - sviluppi di Taylor delle funzioni elementari
 - teoria
-- metodi di risoluzione degli integrali
-- esercizio continuità e derivabilità

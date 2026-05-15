@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "analisi/Definizioni utili.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 223.5
+    "width": 223.5,
+    "collapsed": true
   },
   "right": {
     "id": "a1352f192269474e",
